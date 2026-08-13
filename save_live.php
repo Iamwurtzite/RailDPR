@@ -16,7 +16,7 @@ require_once 'db.php';
 
 // ── live_row_token column — safe way (IF NOT EXISTS nahi use karte) ──
 $col_check = $conn->query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
-    WHERE TABLE_SCHEMA='DAILY_PRODUCTION_REPORT' 
+    WHERE TABLE_SCHEMA=DATABASE() 
     AND TABLE_NAME='production_records' 
     AND COLUMN_NAME='live_row_token'");
 if ($col_check && $col_check->num_rows === 0) {
